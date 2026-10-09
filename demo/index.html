@@ -53,68 +53,68 @@
 <body>
 
 <div class="header">
-  <h1>McActuary</h1>
-  <p>麦麦精算师 — 你的麦当劳资产管理顾问</p>
+  <h1>麦麦精算师</h1>
+  <p>你的麦当劳资产管理顾问</p>
   <div class="badges">
-    <span class="badge">18 MCP Tools</span>
-    <span class="badge">4 Modules</span>
+    <span class="badge">18 个 MCP 工具</span>
+    <span class="badge">4 大模块</span>
     <span class="badge">WorkBuddy Skill</span>
   </div>
 </div>
 
 <div class="container">
   <div class="demo-note">
-    Demo: This is a simulated conversation showing how McActuary works with McDonald's MCP. Try clicking different tabs to see each module in action.
+    Demo：这是模拟对话演示，展示麦麦精算师如何与麦当劳 MCP 交互。点击上方标签切换不同场景体验。
   </div>
 
   <div class="tabs">
-    <div class="tab active" data-scene="save">One-Click Coupons</div>
-    <div class="tab" data-scene="decision">Value Decision</div>
-    <div class="tab" data-scene="points">Points Investment</div>
-    <div class="tab" data-scene="report">Monthly Report</div>
+    <div class="tab active" data-scene="save">一键领券</div>
+    <div class="tab" data-scene="decision">价值决策</div>
+    <div class="tab" data-scene="points">积分投资</div>
+    <div class="tab" data-scene="report">月度报告</div>
   </div>
 
   <div class="chat-box">
     <div class="chat-area" id="chatArea"></div>
     <div class="input-bar">
-      <input type="text" placeholder="Type a message..." id="msgInput" readonly>
-      <button onclick="alert('This is a demo! The actual Skill runs in WorkBuddy with McDonald's MCP.')">Send</button>
+      <input type="text" placeholder="输入消息..." id="msgInput" readonly>
+      <button onclick="alert('这是演示页面！真正的 Skill 在 WorkBuddy 中运行，连接麦当劳 MCP 后即可使用。')">发送</button>
     </div>
   </div>
 
   <div class="footer">
-    <p>McActuary for <a href="https://github.com/M-China/mcd-developer-innovation-challenge" target="_blank">McDonald's Developer Innovation Challenge</a></p>
-    <p style="margin-top:4px;">Built with WorkBuddy + McDonald's MCP</p>
+    <p>麦麦精算师 · <a href="https://github.com/M-China/mcd-developer-innovation-challenge" target="_blank">麦当劳程序员创意开发大赛</a></p>
+    <p style="margin-top:4px;">基于 WorkBuddy + 麦当劳 MCP 开发</p>
   </div>
 </div>
 
 <script>
 const scenes = {
   save: [
-    { role: "user", text: "Help me claim all coupons, I want a Big Mac" },
-    { role: "bot", text: "Done! Claimed <strong>8 coupons</strong> for you. <span class='tag warn'>2 expire in 3 days</span>\n\nNearby store: <strong>McDonald's (XX Road)</strong> - 800m away\n\nBig Mac Combo options:" },
-    { role: "bot", text: "<div class='plan-card rec'><h4><span class='tag rec'>RECOMMENDED</span> Big Mac Combo - Minus 10 coupon</h4><div class='detail'>Original: <span class='money'>¥39</span> -> Coupon price: <span class='money'>¥29</span><br>You save: <strong>¥10 (26%)</strong><br>Coupon: Big Mac Combo -10 voucher</div></div><div class='plan-card'><h4>Big Mac Combo - 20% off</h4><div class='detail'>Original: <span class='money'>¥39</span> -> Discount price: <span class='money'>¥31.2</span><br>You save: <strong>¥7.8 (20%)</strong></div></div>" },
-    { role: "bot", text: "Best plan: Use the Minus-10 coupon, pay <span class='money'>¥29</span>, save <span class='money'>¥10</span>.\n\nConfirm order?" },
-    { role: "user", text: "Yes, order it!" },
-    { role: "bot", text: "Order created! \nOrder #: MCD202610091835\nPickup: McDonald's (XX Road)\nAmount: ¥29\n\nPayment link: [Pay Now]" }
+    { role: "user", text: "帮我领券，我想吃巨无霸套餐" },
+    { role: "bot", text: "已为你领取 <strong>8 张优惠券</strong>，其中 <span class='tag warn'>2 张将在 3 天内过期</span>\n\n附近门店：<strong>麦当劳(XX路店)</strong> - 距离 800m\n\n巨无霸套餐最优方案：" },
+    { role: "bot", text: "<div class='plan-card rec'><h4><span class='tag rec'>推荐方案</span> 巨无霸套餐 - 立减10元券</h4><div class='detail'>原价：<span class='money'>¥39</span> -> 用券后：<span class='money'>¥29</span><br>为你节省：<strong>¥10（26% off）</strong><br>使用优惠券：巨无霸套餐立减10元</div></div><div class='plan-card'><h4>巨无霸套餐 - 8折券</h4><div class='detail'>原价：<span class='money'>¥39</span> -> 折后价：<span class='money'>¥31.2</span><br>为你节省：<strong>¥7.8（20% off）</strong></div></div>" },
+    { role: "bot", text: "最优方案：使用立减10元券，实付 <span class='money'>¥29</span>，省 <span class='money'>¥10</span>。\n\n确认下单？" },
+    { role: "user", text: "好的，下单！" },
+    { role: "bot", text: "订单已创建！\n订单号：MCD202610091835\n取餐门店：麦当劳(XX路店)\n金额：¥29\n\n支付链接：[立即支付]" }
   ],
   decision: [
-    { role: "user", text: "I want a Big Mac, what's the cheapest way?" },
-    { role: "bot", text: "Checking all options across coupons, points, and lottery...\n\nFound <strong>3 plans</strong> for you:" },
-    { role: "bot", text: "<div class='plan-card rec'><h4><span class='tag rec'>RECOMMENDED</span> Plan B: Redeem with points</h4><div class='detail'>Cost: <span class='points'>0 points</span> (0 RMB)<br>Needs: <strong>2000 points</strong> -> You have 3500<br><span class='tag warn'>500 points expire in 3 days!</span><br>Value rating: ★★★★☆</div></div><div class='plan-card'><h4>Plan A: Buy with coupon</h4><div class='detail'>Cost: <span class='money'>¥15</span> (original ¥25)<br>Discount: 40% off<br>Coupon used: Big Mac -10</div></div><div class='plan-card'><h4>Plan C: Try lottery</h4><div class='detail'>Cost: <span class='points'>500 pts/draw</span><br>EV = <span class='money'>¥-1.0</span> (not worth it)<br><span class='tag bad'>NOT RECOMMENDED</span></div></div>" },
-    { role: "bot", text: "<strong>Suggestion: Plan B</strong> - Your points expire soon, redeeming is the smartest move. The 2000 points you'd spend are worth ~¥25 in product value, vs only ¥10 saved with the coupon.\n\nAuto-claimed all available coupons. Redeem Big Mac voucher now?" }
+    { role: "user", text: "我想吃巨无霸，怎么最划算？" },
+    { role: "bot", text: "正在对比优惠券、积分兑换和抽奖三种方案...\n\n为你找到 <strong>3 种方案</strong>：" },
+    { role: "bot", text: "<div class='plan-card rec'><h4><span class='tag rec'>推荐方案</span> 方案B：积分兑换</h4><div class='detail'>花费：<span class='points'>2000 积分</span>（0 元）<br>你的积分余额：3500，其中 <span class='tag warn'>500 积分 3 天后过期！</span><br>积分性价比：★★★★☆</div></div><div class='plan-card'><h4>方案A：优惠券购买</h4><div class='detail'>花费：<span class='money'>¥15</span>（原价 ¥25）<br>折扣：4 折<br>使用优惠券：巨无霸立减10元</div></div><div class='plan-card'><h4>方案C：抽奖搏一搏</h4><div class='detail'>消耗：<span class='points'>500 积分/次</span><br>期望值 EV = <span class='money'>¥-1.0</span>（不划算）<br><span class='tag bad'>不建议</span></div></div>" },
+    { role: "bot", text: "<strong>建议：选择方案B</strong> — 你的积分即将过期，兑换最划算。2000 积分相当于 ¥25 的商品价值，而用券只省 ¥10。\n\n已自动领取可用优惠券。确认用积分兑换巨无霸券吗？" }
   ],
   points: [
-    { role: "user", text: "How many points do I have? Any expiring?" },
-    { role: "bot", text: "Your points account:\n\n<strong>Available:</strong> 3,500 points\n<strong>Accumulated:</strong> 12,800 points\n<strong>Expiring soon:</strong> <span class='tag warn'>500 points in 3 days</span>\n\nDon't let them go to waste! Here are the best redemption options:" },
-    { role: "bot", text: "<strong>Points Value Ranking:</strong>\n\n1. Big Mac Voucher — 2000 pts (value ~¥25) — VPP ¥0.0125 ★★★★\n2. Fries Voucher — 800 pts (value ~¥10) — VPP ¥0.0125 ★★★★\n3. McFlurry Voucher — 1500 pts (value ~¥12) — VPP ¥0.008 ★★★" },
-    { role: "bot", text: "Lottery check: EV = ¥-1.0 per draw (<span class='tag bad'>not worth it</span>). Recommend spending points on mall redemption instead.\n\nRedeem Big Mac Voucher (2000 pts)?" },
-    { role: "user", text: "Yes, redeem it" },
-    { role: "bot", text: "Redeemed! \nVoucher: Big Mac Free Voucher\nPoints deducted: 2000\nRemaining: 1500 points\n\nThe voucher has been added to your coupon wallet. Use it at any McDonald's counter or self-service kiosk." }
+    { role: "user", text: "我的积分还有多少？快过期了吗？" },
+    { role: "bot", text: "你的积分账户：\n\n<strong>可用积分：</strong>3,500 分\n<strong>累计积分：</strong>12,800 分\n<strong>即将过期：</strong><span class='tag warn'>500 积分，3 天后过期</span>\n\n别让积分白白浪费！以下是最优兑换方案：" },
+    { role: "bot", text: "<strong>积分性价比排行：</strong>\n\n1. 巨无霸兑换券 — 2000 积分（价值约 ¥25）— 性价比 ¥0.0125 ★★★★\n2. 薯条兑换券 — 800 积分（价值约 ¥10）— 性价比 ¥0.0125 ★★★★\n3. 麦旋风兑换券 — 1500 积分（价值约 ¥12）— 性价比 ¥0.008 ★★★" },
+    { role: "bot", text: "抽奖分析：每次抽奖期望值 EV = ¥-1.0（<span class='tag bad'>不划算</span>），建议用积分兑换商品而非抽奖。\n\n是否兑换巨无霸券（消耗 2000 积分）？" },
+    { role: "user", text: "好的，兑换吧" },
+    { role: "bot", text: "兑换成功！\n兑换券：巨无霸免费兑换券\n扣除积分：2000\n剩余积分：1500\n\n兑换券已加入你的优惠券钱包，可在任意麦当劳门店柜台或自助点餐机使用。" }
   ],
   report: [
-    { role: "user", text: "Give me my monthly report" },
-    { role: "bot", text: "<strong>=== McActuary Monthly Report ===</strong>\n\n<strong>Orders:</strong> 6 this month, total ¥186\n<strong>Coupon savings:</strong> <span class='money'>¥52</span> (used 4 coupons)\n<strong>Points:</strong> +820 earned, -2000 redeemed\n<strong>Balance:</strong> 1,500 points\n<strong>Expiring:</strong> 500 pts (5 days)\n\n<strong>Action Items:</strong>\n1. <span class='tag warn'>2 coupons expiring this week</span> - use them!\n2. Points balance is low, recent purchases will help rebuild\n3. Lottery EV is negative, skip for now\n4. New coupons available - claim now?\n\nNet savings this month: <span class='money'>¥52</span> + <span class='points'>¥25 pts value</span> = <strong>¥77 total value saved</strong>" }
+    { role: "user", text: "帮我看看这个月消费报告" },
+    { role: "bot", text: "<strong>=== 麦麦精算师 月度报告 ===</strong>\n\n<strong>本月订单：</strong>6 单，总计 ¥186\n<strong>优惠券节省：</strong><span class='money'>¥52</span>（使用 4 张券）\n<strong>积分变动：</strong>+820 获取，-2000 兑换\n<strong>当前余额：</strong>1,500 积分\n<strong>即将过期：</strong>500 积分（5 天后）\n\n<strong>行动建议：</strong>\n1. <span class='tag warn'>2 张优惠券本周过期</span> — 尽快使用！\n2. 积分余额偏低，近期消费可累积\n3. 当前抽奖期望值为负，不建议抽奖\n4. 有新优惠券可领 — 现在领取？\n\n本月总节省：<span class='money'>¥52</span> 现金 + <span class='points'>¥25 积分价值</span> = <strong>共节省 ¥77</strong>" }
   ]
 };
 
@@ -130,7 +130,7 @@ function renderScene(sceneKey) {
       msgDiv.className = `msg ${msg.role}`;
       const avatar = document.createElement("div");
       avatar.className = `avatar ${msg.role}`;
-      avatar.textContent = msg.role === "bot" ? "M" : "U";
+      avatar.textContent = msg.role === "bot" ? "M" : "我";
       const bubble = document.createElement("div");
       bubble.className = "bubble";
       bubble.innerHTML = msg.text.replace(/\n/g, "<br>");
